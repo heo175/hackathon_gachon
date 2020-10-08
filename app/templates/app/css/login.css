@@ -8,6 +8,7 @@ background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
+
 }
 
 
@@ -67,10 +68,32 @@ font-family: 'Numans', sans-serif;
 
 
   /* 소셜 로그인 */
-  .fab{
-      width:20%;
-      height:20%;
-  }
-  .social{
-      
-  }
+
+    
+    .social_icon span{
+    font-size: 60px;
+    margin-left: 10px;
+    color: #FFC312;
+    }
+    
+    .social_icon span:hover{
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    }
+    
+    .social_icon{
+    position: absolute;
+    right: 34%;
+    top: 21%;
+    }
+  
+
+    /* 홈으로 돌아가기 */
+    .go_home{
+     
+      color: black;
+
+    }
+    .go_home:hover{
+      color: black;
+    }

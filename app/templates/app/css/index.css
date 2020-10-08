@@ -10187,6 +10187,12 @@ header.masthead h1 {
 
 
 /* 산하추가- nav에 씀 */
+.col-peo{
+  color: black;
+  font-size: 150%;
+  
+}
+
 
 nav div div a img{
   width: 25%;
@@ -10214,7 +10220,7 @@ nav{
 nav div{
   display: flex; 
   position: relative;
-  width: 1000px; 
+  width: 1200px; 
   margin: 0 auto;
 
 }
@@ -10250,10 +10256,11 @@ nav div > span{
 }
 
 
-nav div a:nth-child(1).on ~ span {left :75px; opacity:1;}
-nav div a:nth-child(2).on ~ span {left :325px; opacity:1;}
-nav div a:nth-child(3).on ~ span {left :575px; opacity:1;}
-nav div a:nth-child(4).on ~ span {left :825px; opacity:1;}
+nav div a:nth-child(1).on ~ span {left :70px; opacity:1;}
+nav div a:nth-child(2).on ~ span {left :310px; opacity:1;}
+nav div a:nth-child(3).on ~ span {left :550px; opacity:1;}
+nav div a:nth-child(4).on ~ span {left :790px; opacity:1;}
+nav div a:nth-child(5).on ~ span {left :1030px; opacity:1;}
 
 
 
@@ -10311,8 +10318,145 @@ input::placeholder{
 
 
 /* card*/
-.card{
-  margin-top: 5%;
+.card1{
+  float: left;
+  width: 360px;
+  background: #f1f1f1;
+  position: absolute;
+  margin-top:20%;
+  left:20%;
+  transform: translate(-50%,-50%);
+
+  
+
  
 }
+.card2{
+  float: left;
+  width: 360px;
+  background: #f1f1f1;
+  position: absolute;
+  margin-top:-65%;
+  margin-left:180%;
+  transform: translate(-50%,-50%);
+
+  
+
+ 
+}
+
+.card3{
+  float: left;
+  width: 360px;
+  background: #f1f1f1;
+  position: absolute;
+  margin-top:-65%;
+  margin-left:180%;
+  transform: translate(-50%,-50%);
+
+  
+
+ 
+}
+
+
+
+.top-section{
+  height: 310px;
+  overflow:hidden;
+  background: #fff;
+  position: relative;
+
+}
+
+.card_nav{
+  text-align: center;
+  
+}
+
+.card_nav img{
+  width: 80px;
+  height: 50px;
+  border: 1px solid #ddd;
+  margin: 8px 2px;
+  cursor: pointer;
+  transition: 0.3s;
+
+}
+
+.card_nav img:hover{
+  border-color: #ed1c24;
+}
+
+.price{
+  position: absolute;
+  top: 20px;
+  right:20px;
+  color: #ffffff;
+  font-size: 24px;
+
+}
+
+.product-info{
+  padding:24px;
+}
+
+.name{
+  text-transform: uppercase;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+}
+.dis{
+  font-size: 16px;
+  opacity: 0.7;
+}
+.btn{
+  display:block;
+  background: #ed1c24;
+  text-align: center;
+  color:#ffffff;
+  padding:10px;
+ 
+  transition: 0.3s;
+
+}
+
+.btn:hover{
+  background: rgb(0, 0, 0);
+  COLOR: WHITE;
+}
+
+
+/* 카트안에 좋아요 버튼 */
+.fa-heart{ font-size: x-large;}
+.likebt{  outline:0!important; margin-top: 5%;}
+.far{ color:gray;}
+.red{ color:red;}
+
+
+/* footer */
+.footer {
+  background-color: rgb(221, 220, 220);
+  position: relative;
+  margin-top: -40%;
+ 
+}
+.ttile {
+  font-weight: bold;
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
 
