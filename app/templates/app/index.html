@@ -4,11 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>인덱스</title>
+    <title>롯데, Create Custom Product </title>
     <link href="css/index.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
@@ -21,30 +26,109 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+
+
+    <!-- navbar 시작 -->
+
+
+
     <nav>
-        <!-- 여기에 네비바 부분 -->
+        <div>
+            <a href="#">
+                <img style="margin-top: 3%;width: 8%;" src="https://blog.lotte.co.kr/wp-content/themes/lotte_v2/assets/images/ci.png">
+            </a>
+
+        </div>
+
+        <div>
+            <div class="menu">
+                <a href="#a" class="on"><span>상품보기</span></a>
+                <a href="#a"><span>상품만들기</span></a>
+                <a href="#a"><span>랭킹</span></a>
+
+                <a href="./login.html"><span>로그인</span></a>
+                <span></span>
+            </div>
+        </div>
+
     </nav>
-    <div class="container" style="visibility: hidden;">
-        안보이는부분/공간차지용<br>안보이는부분/공간차지용<br>안보이는부분/공간차지용<br>
-    </div>
-    <div class="container test">
-        <div class="row">
-            <div class="test1 col-9">광고</div>
-            <div class="test2 col-3 ">
+
+    <script>
+        $(document).ready(function () {
+            $('nav a').on('click', function () {
+                $(this).addClass('on');
+                $(this).siblings().removeClass('on');
+
+            });
+
+        });
+    </script>
+
+    <!-- navbar 끝 -->
+
+
+    <!-- 광고와 로그인 -->
+    <div class="adANDlogin">
+
+
+        <!-- 광고 -->
+        <div id="carouselExampleIndicators" class="carousel slide ad" data-ride="carousel">
+            <ol class="carousel-indicators">
+                
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner" style="position: relative; z-index: -1;">
+                <div class="carousel-item active" style="position: relative;">
+                    <img src="../../../img/present1.png" class="d-block w-100" alt="선물세트커스텀1" style="position: relative;z-index: -10;">
+                    <div style="position:relative;"><a href="#" style="color: rgb(63, 0, 163); z-index: 1500; background-color: rgb(255, 17, 0); font-size: 20px;">
+                        내가 원하는 상품으로, 내가 원하는 선물세트 제작하기!
+                    </a></div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="../../../img/present1.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../../../img/present1.png" class="d-block w-100" alt="...">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 로그인 -->
+        <div class="login_inner">
+            <div class="login_inner_font">
+                <center>LOTTE</center>
+            </div>
+            <div class="login_inner_box">
                 <form>
-                    <input type="text"><br>
-                    <input type="text"><br>
-                    <button>로그인</button>
-                    <button>회원가입</button>
+                    <input type="text" placeholder="ID"><br><br>
+                    <input type="text" placeholder="PASSWORD"><br><br>
+                    
+                    <div style="color: white;">
+                        <input type="checkbox" style="width: 5%;">ID저장
+                        <a href="#" style="margin-left: 25%; text-decoration: none; color: white;">회원가입</a>
+                    </div>
+                    
+                    <br>
+                    <button style="width: 60%;height:2rem;border-radius: 10rem; background-color: white;">로그인</button>
                 </form>
+                
+                <br><br>
+
+                <p><a href="#" style="margin-left: 9%; text-decoration: none; color: white;">아이디/비밀번호 찾기</a></p>
             </div>
         </div>
     </div>
-    <div class="container" style="visibility: hidden;">
-        안보이는부분/공간차지용<br>안보이는부분/공간차지용<br>안보이는부분/공간차지용<br>
-    </div>
+
+
     <!-- 아래 부분은 추후 for문으로 구현할것 -->
-    <div class="container test3">
+    <br>
+    <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="assets/img/로고.png" alt="Card image cap">
@@ -103,6 +187,7 @@
             </div>
         </div>
     </div>
+
 
 </body>
 

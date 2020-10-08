@@ -47,6 +47,15 @@
   box-sizing: border-box;
 }
 
+
+/* 산하추가 nav에 쓰임 */
+*{
+  padding :0;
+  margin:0;
+  text-decoration: none;
+  list-style: none;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -67,6 +76,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -159,7 +169,7 @@ sup {
 }
 
 a {
-  color: #f4623a;
+  color: white;
   text-decoration: none;
   background-color: transparent;
 }
@@ -3983,6 +3993,10 @@ input[type=button].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  /* 산하추가- nav에 씀 */
+  background-color: #ffffff;
+  padding: 8px 12px;
+  
 }
 .navbar .container,
 .navbar .container-fluid,
@@ -3994,6 +4008,7 @@ input[type=button].btn-block {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+
 }
 .navbar-brand {
   display: inline-block;
@@ -4310,7 +4325,7 @@ input[type=button].btn-block {
   color: #fff;
 }
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5);s
+  color: rgba(255, 255, 255, 0.5);
 }
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
   color: rgba(255, 255, 255, 0.75);
@@ -10168,19 +10183,136 @@ header.masthead h1 {
   width: 1em;
   height: 1em;
 }
-.test{
-  background-color: #117a8b;
+
+
+
+/* 산하추가- nav에 씀 */
+
+nav div div a img{
+  width: 25%;
+  
 }
-.test1{
-  background-color: #4c42d6;
+.menu{
+  margin-top: 0%;
+  
 }
-.test2{
-  background-color: #42d680;
+
+div .menu{
+  margin-top:10%;
+  
 }
-.test3{
-  background-color: #df6db9;
+nav{
+  /* 메뉴고정 해제 */
+  /* position: fixed;  */
+  left: 0; top: 0%; 
+  width: 100%; 
+
+  background-color: #ffffff;
+  z-index: 999;
+
 }
-.indexad{
-  /* width: 10%;
-  height: 10%; */
+nav div{
+  display: flex; 
+  position: relative;
+  width: 1000px; 
+  margin: 0 auto;
+
 }
+nav div a{
+  flex: 1;
+  display: block;
+  bottom: 5%;
+  height: 50px;
+  line-height: 40px;
+  text-align:center;
+  color: #000;
+}
+
+nav div a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+nav div a.on{
+  color: #ed1c24;
+}
+
+nav div > span{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  height: 3px;
+  background-color: #ed1c24;
+  opacity:0;
+  transition: all .5s;
+
+}
+
+
+nav div a:nth-child(1).on ~ span {left :75px; opacity:1;}
+nav div a:nth-child(2).on ~ span {left :325px; opacity:1;}
+nav div a:nth-child(3).on ~ span {left :575px; opacity:1;}
+nav div a:nth-child(4).on ~ span {left :825px; opacity:1;}
+
+
+
+/* 광고 */
+.adANDlogin{
+  height:100%;
+  
+}
+.ad{
+  float: left;
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 60%;
+  height:26.5em;
+ 
+
+}
+
+/* 내부 로그인창 */
+.login_inner_font{
+  color: white; 
+  font-size: 30px; 
+  font-weight: bolder; 
+  margin-top: 20%;
+}
+.login_inner{
+  margin-top: 5%;
+  float: left;
+  background-color: #ed1c24;
+  width: 30%;
+  height:31.5em;
+
+}
+.login_inner_box{
+  
+  margin-top:10%;
+  width: 80%;
+ 
+  margin-left: 25%;
+}
+input{
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: white;
+  background-color: #ed1c24;
+  width: 60%;
+ 
+
+}
+input::placeholder{
+  color:white;
+}
+
+
+
+/* card*/
+.card{
+  margin-top: 5%;
+ 
+}
+

@@ -23,51 +23,70 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="d-flex justify-content-center h-100">
-			<div class="card">
-				<div class="card-header">
-					<h3>로그인</h3>
-					<div class="d-flex justify-content-end social_icon">
-						<span><i class="fab fa-facebook-square"></i></span>
-						<span><i class="fab fa-google-plus-square"></i></span>
-						<span><i class="fab fa-twitter-square"></i></span>
-					</div>
-				</div>
-				<div class="card-body">
-					<form>
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="text" class="form-control" placeholder="아이디">
 
-						</div>
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-							<input type="password" class="form-control" placeholder="비밀번호">
-						</div>
-						<div class="row align-items-center remember">
-							<input type="checkbox">아이디기억
-						</div>
-						<div class="form-group">
-							<input type="submit" value="로그인" class="btn float-right login_btn">
-						</div>
-					</form>
-				</div>
-				<div class="card-footer">
-					<div class="d-flex justify-content-center links">
-						계정이없음?<a href="#">회원가입</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<a href="#">비번찾기</a>
-					</div>
-				</div>
-			</div>
-		</div>
+	<!-- 로고 -->
+	<div class="logo-shell">
+		<a href="./index.html">
+			<img class="logo" src="https://blog.lotte.co.kr/wp-content/themes/lotte_v2/assets/images/ci.png">
+		</a>
+
 	</div>
+
+
+	<!-- 로그인 -->
+	<div class="social">
+		<i class="fab fa-facebook-square"></i>
+		<i class="fab fa-google-plus-square"></i>
+		<i class="fab fa-twitter-square"></i>
+	</div>
+
+	<div class="login_inner">
+		
+		<div class="login_inner_font">
+
+			<center>LOTTE</center>
+
+
+		</div>
+
+
+		<div class="login_inner_box">
+			<form>
+				<input type="text" placeholder="ID"><br><br>
+				<input type="text" placeholder="PASSWORD"><br><br>
+
+				<div style="color: white;">
+					<input type="checkbox" style="width: 5%;">ID저장
+					<a href="#" style="margin-left: 25%; text-decoration: none; color: white;">회원가입</a>
+				</div>
+
+				<br>
+				<button style="width: 60%;height:2rem;border-radius: 10rem; background-color: white;">로그인</button>
+
+				<br>
+
+			</form>
+
+			<br><br>
+
+			<p><a href="#" style="margin-left: 9%; text-decoration: none; color: white;">아이디/비밀번호 찾기</a></p>
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
