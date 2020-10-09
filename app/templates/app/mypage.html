@@ -13,7 +13,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 </head>
 
 <body>
@@ -29,45 +29,52 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-1 test3">정보 창</div>
-    <div class="container-fluid col-11">
-        <div class="col-md-12 product-info">
-            <ul id="myTab" class="nav nav-tabs nav_tabs d-flex justify-content-end">
-
-                <li class="active"><a href="#rank" data-toggle="tab">내랭킹</a></li>
-                <li><a href="#cart" data-toggle="tab">장바구니</a></li>
-                <li><a href="#history" data-toggle="tab">구매내역</a></li>
-                <li><a href="#save" data-toggle="tab">찜</a></li>
-                <li><a href="#modify" data-toggle="tab">수정</a></li>
-            </ul>
-            <div id="myTabContent" class="tab-content">
-                <div class="container" style="visibility: hidden;">
-                    안보이는부분/공간차지용<br>
+            <div class="col-1 mainUser" style="height: 200px;"> 
+                <div class="mainUserImg">
+                    <i class="fas fa-user fa-2x p-3"></i> 
+                    <p>{{id}}님</p>
                 </div>
-                <div class="tab-pane fade in active" id="rank">
-                    <iframe src="mypage_rank.html" class="frameset"></iframe>
-                </div>
-                <div class="tab-pane fade" id="cart">
-                    <iframe src="mypage_cart.html" class="frameset"></iframe>
-                </div>
-                <div class="tab-pane fade" id="history">
-                    <iframe src="mypage_history.html" class="frameset"></iframe>
-                </div>
-                <div class="tab-pane fade" id="save">
-                    <iframe src="mypage_save.html" class="frameset"></iframe>
-                </div>
-                <div class="tab-pane fade" id="modify">
-                    <iframe src="mypage_modify.html" class="frameset"></iframe>
+                <div class="mainUserInfo">
+                    {{rank}}등
+                    {{point}}P
                 </div>
             </div>
-            <hr>
+            <div class="container-fluid col-11">
+                <div class="col-md-12 product-info">
+                    <ul id="myTab" class="nav nav-tabs nav_tabs d-flex justify-content-end">
 
+                        <li><a href="#rank" data-toggle="tab">내랭킹</a></li>
+                        <li><a href="#cart" data-toggle="tab">장바구니</a></li>
+                        <li><a href="#history" data-toggle="tab">구매내역</a></li>
+                        <li><a href="#save" data-toggle="tab">찜</a></li>
+                        <li  class="active"><a href="#modify" data-toggle="tab">수정</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="container" style="visibility: hidden;">
+                            안보이는부분/공간차지용<br>
+                        </div>
+                        <div class="tab-pane fade" id="rank">
+                            <iframe src="mypage_rank.html" class="frameset"></iframe>
+                        </div>
+                        <div class="tab-pane fade" id="cart">
+                            <iframe src="mypage_cart.html" class="frameset"></iframe>
+                        </div>
+                        <div class="tab-pane fade" id="history">
+                            <iframe src="mypage_history.html" class="frameset"></iframe>
+                        </div>
+                        <div class="tab-pane fade" id="save">
+                            <iframe src="mypage_save.html" class="frameset"></iframe>
+                        </div>
+                        <div class="tab-pane fade   in active" id="modify">
+                            <iframe src="mypage_modify.html" class="frameset"></iframe>
+                        </div>
+                    </div>
+                    <hr>
+
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-</div>
-
-</div>
 </body>
 
 </html>

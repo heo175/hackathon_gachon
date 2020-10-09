@@ -3,9 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/mypage.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <title>찜목록</title>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".savebtn1").click(function(){
+            switch($(".test").text()){
+                case "1": 
+                $("#show2").css("display", "block");
+                $("#show1").css("display", "none");
+                $(".test").text("2");  
+                break;
+                case "2": 
+                $("#show1").css("display", "block");
+                $("#show2").css("display", "none");
+                $(".test").text("1");  
+                break;
+            }
+            });
+
+            
+        });
+
+    </script>
 </head>
 <body>
-    찜목록
+    <div class="savebtn">
+        <button class="savebtn1">상품</button>
+        <button class="savebtn1">선물세트</button>
+    </div>
+    <div>
+        <div class="product_save_list" id="show1">
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" id="check_all" onclick="checkAll();">&nbsp;&nbsp;&nbsp;&nbsp;전체선택
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">상품 이름</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>금액</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                    <button class="all_cart_delete_btn">삭제</button>
+                </div>
+            </div>
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" class="check" name="allcheck" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="assets/img/grape.jpg" width="80px" height="80px">
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">상품이름 상품이름 상품이름 상품이름상품이름</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>0000000원</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                    <button class="cart_delete_btn">삭제</button>
+                </div>
+            </div>
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" class="check" name="allcheck" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="assets/img/grape.jpg" width="80px" height="80px">
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">상품이름 상품이름 상품이름 상품이름상품이름</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>0000000원</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                    <button class="cart_delete_btn">삭제</button>
+                </div>
+            </div>
+        </div>       
+
+        <div class="set_save_list" id="show2" style="display:none;">
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" id="check_all" onclick="checkAll();">&nbsp;&nbsp;&nbsp;&nbsp;전체선택
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">선물세트 이름</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>금액</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                    <button class="all_cart_delete_btn">삭제</button>
+                </div>
+            </div>
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" class="check" name="allcheck" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="assets/img/grape.jpg" width="80px" height="80px">
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">선물세트이름 선물세트이름 선물세트이름 선물세트이름선물세트이름</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>0000000원</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                    <button class="cart_delete_btn">담기</button>
+                    <button class="cart_delete_btn">삭제</button>
+                </div>
+            </div>
+        </div>       
+    </div>
+    <p class="test" style="margin:auto; color:snow; display:none;">1</p>
+<script src="js/mypage.js"></script>
 </body>
 </html>

@@ -1,23 +1,192 @@
-.test{
-    background-color: #117a8b;
-  }
-  .test1{
-    background-color: #4c42d6;
-  }
-  .test2{
-    background-color: #42d680;
-  }
-  .test3{
-    background-color: #df6db9;
-  }
-  .myclass1{
-    width: 1000px;
-  }
-  .dis{
-      display: flex;
-  }
-  .frameset{
-      width: 100%;
-      height: 100%;
-      border: 0;
-  }
+html, body{
+  /* overflow-y:hidden; */
+  overflow-x:hidden;
+}
+.myclass1{
+  width: 1000px;
+}
+.dis{
+    display: flex;
+}
+.frameset{
+    width: 100%;
+    height: 100vh;
+    border: 0;
+}
+
+/* mypage */
+.mainUser{
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #ed1c24;
+}
+.mainUserImg{
+  width: 50px;
+  height: 50px;
+  margin: 35px auto;
+  border-radius: 50%;
+  border-style: solid;
+}
+
+/* mypage_rank */
+.rank{
+  width: 60px; 
+  height: 60px;
+  border-radius: 50%;
+  background-color: thistle;
+}
+
+.rankTxt{
+  font-size: 20px;
+}
+
+table{
+  border-spacing: 5px;
+  vertical-align: middle;
+  margin: 0 30px;
+}
+tr{
+  vertical-align: middle;
+}
+.rank_btn{
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 50px;
+  height: 30px;
+  margin-right: 10px;
+  background-color: #ed1c24;
+  color: white;
+}
+.myrank_list{
+  margin: 10px 0;
+}
+.scale {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  position: relative;
+  transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+}
+.scale:hover {
+  transform: scale(2.0);
+  -webkit-transform: scale(2.0);
+  -moz-transform: scale(2.0);
+  -ms-transform: scale(2.0);
+  -o-transform: scale(2.0);
+  z-index: 1;
+}
+
+/* mypage_cart */
+
+.cartSum{
+  border: 5px solid gainsboro;
+  padding: 30px 20px;
+  margin: 30px 50px;
+  text-align: center;
+}
+
+.cartbtn1{
+  border: 2px solid #ed1c24;
+  border-radius: 5px;
+  background-color: white;
+  width: 250px;
+  padding: 20px 20px;
+  margin: 5px 5px;
+  text-align: center;
+}
+
+.cartbtn2{
+  border: 2px solid #ed1c24;
+  border-radius: 5px;
+  background-color:  #ed1c24;
+  width: 250px;
+  padding: 20px 20px;
+  margin: 5px 5px;
+  text-align: center;
+  color: white;
+}
+
+.cartbtn{
+  display: flex;
+  justify-content: center;
+}
+
+.plus, .minus{
+  border: 2px solid #ed1c24;
+  background-color: white;
+}
+
+.cart_delete_btn{
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 50px;
+  height: 30px;
+  margin-right: 10px;
+  background-color: #ed1c24;
+  color: white;
+}
+
+.all_cart_delete_btn{
+  border: 1px solid #ed1c24;
+  border-radius: 5px;
+  width: 50px;
+  height: 30px;
+  margin-right: 10px;
+  background-color: white;
+}
+
+/* mypage_history */
+
+.date{
+  border: 1px solid gainsboro;
+  margin: 10px 50px;
+  padding: 10px;
+  height: 80px;
+  background-color: gainsboro;
+  justify-content: center;
+}
+
+.historyBtn1{
+  border: 2px solid #ed1c24;
+  border-radius: 5px;
+  background-color: white;
+  width: 120px;
+  padding: 0 10px;
+  margin: 5px;
+  text-align: center;
+}
+
+.historyNameTxt{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* mypage_save */
+.savebtn1{
+  border: 2px solid #ed1c24;
+  border-radius: 5px;
+  background-color: white;
+  width: 250px;
+  padding: 20px 20px;
+  margin: 5px 5px;
+  text-align: center;
+}
+
+.savebtn2{
+  border: 2px solid #ed1c24;
+  border-radius: 5px;
+  background-color:  #ed1c24;
+  width: 250px;
+  padding: 20px 20px;
+  margin: 5px 5px;
+  text-align: center;
+  color: white;
+}
+
+.savebtn{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
