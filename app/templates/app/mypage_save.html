@@ -12,6 +12,7 @@
     <title>찜목록</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
+        // [상품] 누르면 상품만, [선물세트] 누르면 선물세트만 보이게
         $(document).ready(function(){
             $(".savebtn1").click(function(){
             switch($(".test").text()){
@@ -30,6 +31,15 @@
 
             
         });
+
+        // 하트 색 바뀌게
+        $(function () {
+            $("i").click(function () {
+                $(this).toggleClass("far");
+                $(this).toggleClass("fas");
+            })
+        });
+
 
     </script>
 </head>
@@ -66,7 +76,8 @@
                     <div>0000000원</div>
                 </div>
                 <div class="col-1 p-1" style=" text-align:right;">
-                    <button class="cart_delete_btn">삭제</button>
+                    <!-- <button class="cart_delete_btn">삭제</button> -->
+                    <button class="likebt" style="border: none; background-color:white;"><i class="fas fa-heart" id="heart"></i></button>
                 </div>
             </div>
             <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
@@ -81,7 +92,8 @@
                     <div>0000000원</div>
                 </div>
                 <div class="col-1 p-1" style=" text-align:right;">
-                    <button class="cart_delete_btn">삭제</button>
+                   <!-- <button class="cart_delete_btn">삭제</button> -->
+                   <button class="likebt" style="border: none; background-color:white;"><i class="fas fa-heart" id="heart"></i></button>
                 </div>
             </div>
         </div>       
