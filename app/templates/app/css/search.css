@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+ }
+
+ *{
+  font-family: "NanumBarunGothic", sans-serif;
+ }
+
+
 .active-pink-2 input.form-control[type=text]:focus:not([readonly]) {
     border-bottom: 1px solid #f48fb1;
     box-shadow: 0 1px 0 0 #f48fb1;
@@ -114,7 +127,51 @@ nav div a:nth-child(5).on ~ span {left :1030px; opacity:1;}
 
 
 /* 검색창 */
-.search-box{
+/* 회원가입 본문 - 로그인과같음 */
+
+.login_inner{
+
+  float: left;
+  background-color: #ed1c24;
+  width: 100%;
+  margin-top:-5%
+
+}
+.login_inner_box{
+  
+  margin-top:3%;
+  margin-bottom: 3%;
+  width: 50%;
+ 
+  margin-left: 35%;
+}
+input{
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: white;
+  background-color: #ed1c24;
+  width: 60%;
+ 
+
+}
+input::placeholder{
+  color:white;
+}
+
+.search-btn{
+  text-decoration: none;
+
+  color: #ffffff;
+  font-size: 250%;
+}
+/* RMx */
+
+
+
+
+
+/* .search-box{
   padding: 10px;
   position: absolute;
   top: 50%;
@@ -153,7 +210,7 @@ nav div a:nth-child(5).on ~ span {left :1030px; opacity:1;}
   line-height: 30px;
   width:90%;
  
-}
+} */
 
 
 /* 태그설정 */
@@ -221,9 +278,13 @@ ul li .btn:hover i{
  
 }
 .hash_txt{
+  text-decoration: none;
   margin-top: 3%;
-  margin-right: 42%;
+  margin-right: 0%;
+
+
 }
+
 
 .td_line td button{
   width: 100%;
@@ -231,6 +292,7 @@ ul li .btn:hover i{
   color: white;
   
 }
+
 
 /* 해시태그에 선택 버튼 */
 
@@ -241,14 +303,15 @@ ul li .btn:hover i{
   
 }
 
+
 /* card*/
 .card1{
   float: left;
-  width: 360px;
+  width: 330px;
   background: #f1f1f1;
   position: absolute;
   margin-top:15%;
-  left:20%;
+  left:18%;
   transform: translate(-50%,-50%);
 
   
@@ -257,10 +320,10 @@ ul li .btn:hover i{
 }
 .card2{
   float: left;
-  width: 360px;
+  width: 330px;
   background: #f1f1f1;
   position: absolute;
-  margin-top:-48%;
+  margin-top:-53%;
   margin-left:180%;
   transform: translate(-50%,-50%);
 
@@ -271,10 +334,10 @@ ul li .btn:hover i{
 
 .card3{
   float: left;
-  width: 360px;
+  width: 330px;
   background: #f1f1f1;
   position: absolute;
-  margin-top:-48%;
+  margin-top:-53%;
   margin-left:180%;
   transform: translate(-50%,-50%);
 
@@ -284,7 +347,7 @@ ul li .btn:hover i{
 }
 .card4{
   float: left;
-  width: 360px;
+  width: 330px;
   background: #f1f1f1;
   position: absolute;
   margin-top:70%;
@@ -297,7 +360,7 @@ ul li .btn:hover i{
 }
 .card5{
   float: left;
-  width: 360px;
+  width: 330px;
   background: #f1f1f1;
   position: absolute;
   margin-top:70%;
@@ -310,7 +373,7 @@ ul li .btn:hover i{
 }
 .card6{
   float: left;
-  width: 360px;
+  width: 330px;
   background: #f1f1f1;
   position: absolute;
   margin-top:70%;
@@ -397,3 +460,92 @@ ul li .btn:hover i{
 .far{ color:gray;}
 .red{ color:red;}
 
+
+/* footer */
+
+.ttile {
+  font-weight: bold;
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+.bot1{
+  margin-top: 15%;
+  margin-left: -35%;
+  
+}
+.bot2{
+  margin-top: 40%;
+  margin-left: -20%;
+  
+}
+
+.bot3{
+  margin-top: 20%;
+  margin-left: -23%;
+
+}
+.bot4{
+  margin-top: 20%;
+  margin-left: -29%;
+
+}
+
+
+
+
+
+/*플로팅*/
+#homeup {
+  margin-left: 15%;
+  display: block;
+  background-image: url(./images/arrow-up.png);
+  background-repeat: no-repeat;
+}
+
+#homeup:hover {
+  opacity: 0.4;
+}
+
+#homedown {
+  margin-left: 15%;
+  display: block;
+  width: 37px;
+  height: 30px;
+  background-image: url(./images/arrow-down.png);
+  background-repeat: no-repeat;
+}
+
+#homedown:hover {
+  opacity: 0.4;
+}
+
+
+.float_z {
+  z-index: -100000;
+}
+
+.float_lotte{
+  z-index: -100000;
+  margin-right: 0;
+  margin-left: -70%;
+  margin-top: 1%;
+  width: 40%;
+  height: 40%;
+}
+.remove_line{
+  z-index: -100000;
+  margin: 0;
+  padding: 0;
+}

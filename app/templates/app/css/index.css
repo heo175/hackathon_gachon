@@ -41,6 +41,16 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+ }
+
+
+
 *,
 *::before,
 *::after {
@@ -54,6 +64,8 @@
   margin:0;
   text-decoration: none;
   list-style: none;
+  font-family: "NanumBarunGothic", sans-serif;
+  
 }
 
 html {
@@ -10263,6 +10275,51 @@ nav div a:nth-child(4).on ~ span {left :790px; opacity:1;}
 nav div a:nth-child(5).on ~ span {left :1030px; opacity:1;}
 
 
+/*플로팅*/
+#homeup {
+  margin-left: 15%;
+  display: block;
+  background-image: url(./images/arrow-up.png);
+  background-repeat: no-repeat;
+}
+
+#homeup:hover {
+  opacity: 0.4;
+}
+
+#homedown {
+  margin-left: 15%;
+  display: block;
+  width: 37px;
+  height: 30px;
+  background-image: url(./images/arrow-down.png);
+  background-repeat: no-repeat;
+}
+
+#homedown:hover {
+  opacity: 0.4;
+}
+
+
+.float_z {
+  z-index: -100000;
+}
+
+.float_lotte{
+  z-index: -100000;
+  margin-right: 0;
+  margin-left: -70%;
+  margin-top: 1%;
+  width: 40%;
+  height: 40%;
+}
+.remove_line{
+  z-index: -100000;
+  margin: 0;
+  padding: 0;
+}
+
+
 
 /* 광고 */
 .adANDlogin{
@@ -10291,7 +10348,7 @@ nav div a:nth-child(5).on ~ span {left :1030px; opacity:1;}
   float: left;
   background-color: #ed1c24;
   width: 30%;
-  height:31.5em;
+  height:28.5em;
 
 }
 .login_inner_box{
@@ -10319,12 +10376,13 @@ input::placeholder{
 
 /* card*/
 .card1{
+  z-index: 1000;
   float: left;
-  width: 360px;
+  width: 330px;
   background: #f1f1f1;
   position: absolute;
   margin-top:20%;
-  left:20%;
+  left:18%;
   transform: translate(-50%,-50%);
 
   
@@ -10333,10 +10391,10 @@ input::placeholder{
 }
 .card2{
   float: left;
-  width: 360px;
+  width: 330px;
   background: #f1f1f1;
   position: absolute;
-  margin-top:-65%;
+  margin-top:-70%;
   margin-left:180%;
   transform: translate(-50%,-50%);
 
@@ -10347,10 +10405,10 @@ input::placeholder{
 
 .card3{
   float: left;
-  width: 360px;
+  width: 330px;
   background: #f1f1f1;
   position: absolute;
-  margin-top:-65%;
+  margin-top:-70%;
   margin-left:180%;
   transform: translate(-50%,-50%);
 
@@ -10435,12 +10493,7 @@ input::placeholder{
 
 
 /* footer */
-.footer {
-  background-color: rgb(221, 220, 220);
-  position: relative;
-  margin-top: -40%;
- 
-}
+
 .ttile {
   font-weight: bold;
 }
