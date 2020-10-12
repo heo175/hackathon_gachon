@@ -14,21 +14,19 @@
     <script>
         // [상품] 누르면 상품만, [선물세트] 누르면 선물세트만 보이게
         $(document).ready(function(){
-            $(".savebtn1").click(function(){
-            switch($(".test").text()){
-                case "1": 
+            $("#2").click(function(){
                 $("#show2").css("display", "block");
                 $("#show1").css("display", "none");
-                $(".test").text("2");  
-                break;
-                case "2": 
-                $("#show1").css("display", "block");
-                $("#show2").css("display", "none");
-                $(".test").text("1");  
-                break;
-            }
+                $("#2").attr("class", "savebtn2");
+                $("#1").attr("class", "savebtn1");
             });
 
+            $("#1").click(function(){
+                 $("#show1").css("display", "block");
+                $("#show2").css("display", "none");
+                $("#1").attr("class", "savebtn2");
+                $("#2").attr("class", "savebtn1");
+            });
             
         });
 
@@ -36,17 +34,37 @@
         $(function () {
             $("i").click(function () {
                 $(this).toggleClass("far");
+                deleteBtn();
                 $(this).toggleClass("fas");
             })
         });
 
 
+        
+
     </script>
 </head>
 <body>
+    <script type="text/javascript">
+        function deleteBtn(){
+            if (confirm("삭제하시겠습니까?")) {
+                // 삭제 코드
+            } else {
+
+            }
+        }       
+
+        function cartBtn(){
+            if (confirm("장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?")) {
+                // 삭제 코드
+            } else {
+
+            }
+        }    
+    </script>
     <div class="savebtn">
-        <button class="savebtn1">상품</button>
-        <button class="savebtn1">선물세트</button>
+        <button class="savebtn2" id="1">상품</button>
+        <button class="savebtn1" id="2">선물세트</button>
     </div>
     <div>
         <div class="product_save_list" id="show1">
@@ -61,25 +79,28 @@
                     <div>금액</div>
                 </div>
                 <div class="col-1 p-1" style=" text-align:right;">
-                    <button class="all_cart_delete_btn">삭제</button>
+                    <button class="all_cart_delete_btn" onclick="deleteBtn();">삭제</button>
                 </div>
             </div>
+            
+            <!-- {%for i in DB이름.all %} -->
             <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
                 <div class="col-2 p-1 pl-3" style="text-align:left;">
                     <input type="checkbox" class="check" name="allcheck" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <img src="assets/img/grape.jpg" width="80px" height="80px">
+                    <img src="assets/img/grape.jpg" width="80px" height="80px"><!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
                 </div>
                 <div class="col-7 p-1">
-                    <div><p class="pt-3">상품이름 상품이름 상품이름 상품이름상품이름</p></div>
+                    <div><p class="pt-3">{{i.상품이름}}</p></div>
                 </div>
                 <div class="col-2 p-1" style=" text-align:center;">
-                    <div>0000000원</div>
+                    <div>{{i.금액}}원</div>
                 </div>
                 <div class="col-1 p-1" style=" text-align:right;">
-                    <!-- <button class="cart_delete_btn">삭제</button> -->
-                    <button class="likebt" style="border: none; background-color:white;"><i class="fas fa-heart" id="heart"></i></button>
+                    <button class="cart_delete_btn" onclick="deleteBtn();">삭제</button>
+                    <!-- <button class="likebt" style="border: none; background-color:white;"><i class="fas fa-heart" id="heart"></i></button> -->
                 </div>
             </div>
+            <!-- {%endfor%} -->
             <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
                 <div class="col-2 p-1 pl-3" style="text-align:left;">
                     <input type="checkbox" class="check" name="allcheck" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
@@ -110,28 +131,29 @@
                     <div>금액</div>
                 </div>
                 <div class="col-1 p-1" style=" text-align:right;">
-                    <button class="all_cart_delete_btn">삭제</button>
+                    <button class="all_cart_delete_btn" onclick="deleteBtn();">삭제</button>
                 </div>
             </div>
+            <!-- {%for i in DB이름.all %} -->
             <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
                 <div class="col-2 p-1 pl-3" style="text-align:left;">
                     <input type="checkbox" class="check" name="allcheck" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <img src="assets/img/grape.jpg" width="80px" height="80px">
+                    <img src="assets/img/grape.jpg" width="80px" height="80px"><!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
                 </div>
                 <div class="col-7 p-1">
-                    <div><p class="pt-3">선물세트이름 선물세트이름 선물세트이름 선물세트이름선물세트이름</p></div>
+                    <div><p class="pt-3">{{i.상품이름}}</p></div>
                 </div>
                 <div class="col-2 p-1" style=" text-align:center;">
-                    <div>0000000원</div>
+                    <div>{{i.금액}}원</div>
                 </div>
                 <div class="col-1 p-1" style=" text-align:right;">
-                    <button class="cart_delete_btn">담기</button>
-                    <button class="cart_delete_btn">삭제</button>
+                    <a href="#"><button class="cart_delete_btn" onclick="cartBtn();">담기</button></a> <!--장바구니에 담는 함수-->
+                    <button class="cart_delete_btn" onclick="deleteBtn();">삭제</button>
                 </div>
             </div>
+            <!-- {%endfor%} -->
         </div>       
     </div>
-    <p class="test" style="margin:auto; color:snow; display:none;">1</p>
 <script src="js/mypage.js"></script>
 </body>
 </html>

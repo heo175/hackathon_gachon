@@ -1,49 +1,25 @@
-
-var sell_price;
-var amount;
-// 수량 조절
-function init () {
-    sell_price = document.form.sell_price.value;
-    amount = document.form.amount.value;
-    document.form.sum.value = sell_price;
-    change();
-}
-
-function add () {
-    hm = document.form.amount;
-    sum = document.form.sum;
-    hm.value ++ ;
-
-    sum.value = parseInt(hm.value) * sell_price;
-    document.getElementById("sum2").textContent = document.getElementById('sum').value+"원";
-}
-
-function del () {
-    hm = document.form.amount;
-    sum = document.form.sum;
-        if (hm.value > 1) {
-            hm.value -- ;
-            sum.value = parseInt(hm.value) * sell_price;
-        }
-    document.getElementById("sum2").textContent = document.getElementById('sum').value+"원";
-}
-
-function change () {
-    hm = document.form.amount;
-    sum = document.form.sum;
-
-        if (hm.value < 0) {
-            hm.value = 0;
-        }
-    sum.value = parseInt(hm.value) * sell_price;
-}  
-
-// 체크박스 체크시 배송비 보이게
+// 체크박스 체크시 금액 나오게
+var price=0;
+var checks=0;
 function check(box){
-    if(box.checked == true){
-       document.getElementById("delivery").style.display = "block";
-    }else{
-        document.getElementById("delivery").style.display = "none";
+    
+    if(box.checked == true){     
+        $(".delivery").text("2500원");
+        checks++;
+        price = price + Number($(box).val());
+        $( '.price_sum' ).text(price+"원");
+        $( '.price_sum2' ).text(price+2500+"원");
+    }
+
+    if(box.checked == false){
+        checks--;
+        price = price - Number($(box).val());
+        $( '.price_sum' ).text(price+"원");
+        $( '.price_sum2' ).text(price+2500+"원");
+        if(checks==0){
+            $(".delivery").text("0원");
+            $( '.price_sum2' ).text("0원");
+        }
     }
 }
 
@@ -51,7 +27,35 @@ function check(box){
 function checkAll(){
     if( $("#check_all").is(':checked') ){
       $("input[name=allcheck]").prop("checked", true);
+      $("input[name=allcheck]:checked").each(function() {
+        price = price + Number($(this).val());
+        $(".delivery").text("2500원");
+        $( '.price_sum' ).text(price+"원");
+        $( '.price_sum2' ).text(price+2500+"원");
+    });
     }else{
       $("input[name=allcheck]").prop("checked", false);
+      $(".delivery").text("0원");
+      $( '.price_sum' ).text("0원");
+      $( '.price_sum2' ).text("0원");
     }
 }
+
+// +, - 누르면 수량 변화
+$(function() {
+    $(".plus").click(function () {
+        var count = Number($(".cart_count").val());
+        var price = Number($(".cart_hidden_price").val());
+        $(".cart_count").val(count+1);
+        $(".sum").text(price*(count+1)+"원");
+    })
+
+    $(".minus").click(function () {
+        var count = Number($(".cart_count").val());
+        var price = Number($(".cart_hidden_price").val());
+        if(count>1){
+        $(".cart_count").val(count-1);
+        $(".sum").text(price*(count-1)+"원");
+        }
+    })
+});

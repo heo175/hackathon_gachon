@@ -14,16 +14,17 @@
 <body>
     <br>
     <div>
+        <!-- {%for i in DB이름.all %} -->
         <div class="myrank_list">
             <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
                 <div class="col-1 p-1" style="text-align:center;">
-                    <div class="rank m-1" style="display: flex; align-items: center;"><p class="rankTxt pt-3 pl-2">82등</p></div>
+                    <div class="rank m-1" style="display: flex; align-items: center;"><p class="rankTxt pt-3 pl-2">{{i.rank}}등</p></div>
                 </div>
                 <div class="col-3 p-1">
-                    <div><p class="pt-3">선물세트이름 선물세트이름 선물세트이름 선물세트이름선물세트이름</p></div>
+                    <div><p class="pt-3">{{i.set_name}} (선물세트이름) </p></div>
                 </div>
                 <div class="col-5 p-1">
-                    <img class="scale" src="assets/img/apple.png" width="80px" height="80px">
+                    <img class="scale" src="assets/img/apple.png" width="80px" height="80px"> <!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
                     <img class="scale" src="assets/img/grape.jpg" width="80px" height="80px">
                     <img class="scale" src="assets/img/apple.png" width="80px" height="80px">
                 </div>
@@ -34,20 +35,23 @@
                     <i class="fas fa-shopping-cart"></i> 5
                 </div>
                 <div class="col-1 p-1" style=" text-align:right;">
+                    <a href="#"> <!--링크 넣기-->
                     <button class="rank_btn">보기</button>
+                    </a>
                 </div>
             </div>
         </div>
+        <!-- {%endfor%} -->
         <div class="myrank_list">
             <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
                 <div class="col-1 p-1" style="text-align:center;">
-                    <div class="rank m-1" style="display: flex; align-items: center;"><p class="rankTxt pt-3 pl-2">82등</p></div>
+                    <div class="rank m-1" style="display: flex; align-items: center;"><p class="rankTxt pt-3 pl-2">{{i.rank}}등</p></div>
                 </div>
                 <div class="col-3 p-1">
-                    <div><p class="pt-3">선물세트이름 선물세트이름 선물세트이름 선물세트이름선물세트이름</p></div>
+                    <div><p class="pt-3">{{i.set_name}} (선물세트이름) </p></div>
                 </div>
                 <div class="col-5 p-1">
-                    <img class="scale" src="assets/img/apple.png" width="80px" height="80px">
+                    <img class="scale" src="assets/img/apple.png" width="80px" height="80px"> <!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
                     <img class="scale" src="assets/img/grape.jpg" width="80px" height="80px">
                     <img class="scale" src="assets/img/apple.png" width="80px" height="80px">
                 </div>
@@ -58,55 +62,9 @@
                     <i class="fas fa-shopping-cart"></i> 5
                 </div>
                 <div class="col-1 p-1" style=" text-align:right;">
+                    <a href="#"> <!--링크 넣기-->
                     <button class="rank_btn">보기</button>
-                </div>
-            </div>
-        </div>
-        <div class="myrank_list">
-            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
-                <div class="col-1 p-1" style="text-align:center;">
-                    <div class="rank m-1" style="display: flex; align-items: center;"><p class="rankTxt pt-3 pl-2">82등</p></div>
-                </div>
-                <div class="col-3 p-1">
-                    <div><p class="pt-3">선물세트이름 선물세트이름 선물세트이름 선물세트이름선물세트이름</p></div>
-                </div>
-                <div class="col-5 p-1">
-                    <img class="scale" src="assets/img/apple.png" width="80px" height="80px">
-                    <img class="scale" src="assets/img/grape.jpg" width="80px" height="80px">
-                    <img class="scale" src="assets/img/apple.png" width="80px" height="80px">
-                </div>
-                <div class="col-1 p-1" style=" text-align:center;">
-                    <i class="far fa-heart fa-lg"></i> 3
-                </div>
-                <div class="col-1 p-1" style=" text-align:center;">
-                    <i class="fas fa-shopping-cart"></i> 5
-                </div>
-                <div class="col-1 p-1" style=" text-align:right;">
-                    <button class="rank_btn">보기</button>
-                </div>
-            </div>
-        </div>
-        <div class="myrank_list">
-            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
-                <div class="col-1 p-1" style="text-align:center;">
-                    <div class="rank m-1" style="display: flex; align-items: center;"><p class="rankTxt pt-3 pl-2">82등</p></div>
-                </div>
-                <div class="col-3 p-1">
-                    <div><p class="pt-3">선물세트이름 선물세트이름 선물세트이름 선물세트이름선물세트이름</p></div>
-                </div>
-                <div class="col-5 p-1">
-                    <img class="scale" src="assets/img/apple.png" width="80px" height="80px">
-                    <img class="scale" src="assets/img/grape.jpg" width="80px" height="80px">
-                    <img class="scale" src="assets/img/apple.png" width="80px" height="80px">
-                </div>
-                <div class="col-1 p-1" style=" text-align:center;">
-                    <i class="far fa-heart fa-lg"></i> 3
-                </div>
-                <div class="col-1 p-1" style=" text-align:center;">
-                    <i class="fas fa-shopping-cart"></i> 5
-                </div>
-                <div class="col-1 p-1" style=" text-align:right;">
-                    <button class="rank_btn">보기</button>
+                    </a>
                 </div>
             </div>
         </div>

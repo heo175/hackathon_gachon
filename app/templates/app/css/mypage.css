@@ -1,6 +1,7 @@
 html, body{
   /* overflow-y:hidden; */
   overflow-x:hidden;
+  height: 100vh;
 }
 .myclass1{
   width: 1000px;
