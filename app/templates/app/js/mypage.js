@@ -41,6 +41,14 @@ function checkAll(){
     }
 }
 
+function checkAll2(){
+    if( $("#check_all2").is(':checked') ){
+      $("input[name=allcheck2]").prop("checked", true);
+    }else{
+      $("input[name=allcheck2]").prop("checked", false);
+    }
+}
+
 // +, - 누르면 수량 변화
 $(function() {
     $(".plus").click(function () {

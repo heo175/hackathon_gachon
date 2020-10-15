@@ -8,16 +8,40 @@
 <title>개인정보 수정</title>
 </head>
 <body>
+	<script type="text/javascript">
+
+        function modifyBtn(){
+			if($("#phone").val()==""){
+				alert("핸드폰 번호를 입력해주세요.");
+				return false;
+			}else if($("#pw").val()==""){
+				alert("비밀번호를 입력해주세요.");
+				return false;
+			}else if($("#pw2").val()==""){
+				alert("비밀번호를 재입력해주세요.");
+				return false;
+			}else if($("#phone").val()!=$("#pw2").val()){
+				alert("비밀번호가 일치하지 않습니다.");
+				return false;
+			}else{
+				alert("개인정보가 수정되었습니다.");
+				window.location.href = "mypage.html";
+				//document.location.href="mypage.html"
+			}
+			return false;
+		}       
+    </script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+	
 	<div class="container">
         <br>	
         <div class="card bg-light">
 			<article class="card-body mx-auto" style="max-width: 400px;">
 				
-				<form>
+				<form name="modifyform">
 					<div class="form-group input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -35,28 +59,28 @@
 							<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 						</div>
 						<select class="custom-select" style="max-width: 120px;">
-							<option selected="">+123</option>
-							<option value="1">+456</option>
-							<option value="2">+789</option>
-							<option value="3">+081</option>
+							<option selected="">010</option>
+							<option value="1">02</option>
+							<option value="2">031</option>
+							<option value="3">032</option>
 						</select>
-						<input name="" class="form-control" placeholder="폰번" type="text">
+						<input id="phone" class="form-control" placeholder="핸드폰번호" type="text">
 					</div> <!-- form-group// -->
 
 					<div class="form-group input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 						</div>
-						<input class="form-control" placeholder="비번입력" type="password">
+						<input class="form-control" id="pw" placeholder="비밀번호" type="password">
 					</div> <!-- form-group// -->
 					<div class="form-group input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 						</div>
-						<input class="form-control" placeholder="다시입력" type="password">
+						<input class="form-control" id="pw2" placeholder="비밀번호 재입력" type="password">
 					</div> <!-- form-group// -->
 					<div class="form-group">
-						<button type="submit" class="btn btn-danger btn-block"> 수정하기 </button>
+						<button type="submit" class="btn btn-danger btn-block" onclick="modifyBtn();"> 수정하기 </button>
 					</div> <!-- form-group// -->
 				</form>
 			</article>

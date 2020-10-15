@@ -12,6 +12,15 @@
     <title>장바구니</title>
 </head>
 <body>
+    <script type="text/javascript">
+        function deleteBtn(){
+            if (confirm("삭제하시겠습니까?")) {
+                //삭제하기
+            } else {
+                //취소
+            }
+        }       
+    </script>
     <br>
     <div class="cart_list">
         <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
@@ -28,7 +37,7 @@
                 <div>금액</div>
             </div>
             <div class="col-1 p-1" style=" text-align:right;">
-                <button class="all_cart_delete_btn">삭제</button>
+                <button class="all_cart_delete_btn" onclick="deleteBtn();">삭제</button>
             </div>
         </div>
         <!-- {%for i in DB이름.all %} -->
@@ -50,7 +59,7 @@
                 <div class="sum">4000원</div> <!-- {{i.price}} -->
             </div>
             <div class="col-1 p-1" style=" text-align:right;">
-                <a href="#"><button class="cart_delete_btn">삭제</button></a> <!-- delete/i.id -->
+                <a href="#"><button class="cart_delete_btn" onclick="deleteBtn();">삭제</button></a> <!-- delete/i.id -->
             </div>
         </div>
         <!-- {%endfor%} -->
@@ -65,14 +74,14 @@
             <div class="col-4 p-1" style=" text-align:right;">
                 <input type="text" class="cart_hidden_price" name="price" value="300">  <!-- value={{i.price}} -->
                 <input type="text" class="cart_count" value="1" size="1"> <!-- {{i.count}} -->
-                <button class="plus"><i class="fas fa-plus fa-xl"></i></button>
-                <button class="minus"><i class="fas fa-minus fa-xl"></i></button>
+                <button class="plus" name="2"><i class="fas fa-plus fa-xl"></i></button>
+                <button class="minus" name="2"><i class="fas fa-minus fa-xl"></i></button>
             </div>
             <div class="col-2 p-1" style=" text-align:center;">
-                <div class="sum">4000원</div> <!-- {{i.price}} -->
+                <div class="sum" name="2">4000원</div> <!-- {{i.price}} -->
             </div>
             <div class="col-1 p-1" style=" text-align:right;">
-                <a href="#"><button class="cart_delete_btn">삭제</button></a> <!-- delete/i.id -->
+                <a href="#"><button class="cart_delete_btn" onclick="deleteBtn();">삭제</button></a> <!-- delete/i.id -->
             </div>
         </div><div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
             <div class="col-2 p-1 pl-3" style="text-align:left;">
@@ -92,7 +101,7 @@
                 <div class="sum">4000원</div> <!-- {{i.price}} -->
             </div>
             <div class="col-1 p-1" style=" text-align:right;">
-                <a href="#"><button class="cart_delete_btn">삭제</button></a> <!-- delete/i.id -->
+                <a href="#"><button class="cart_delete_btn" onclick="deleteBtn();">삭제</button></a> <!-- delete/i.id -->
             </div>
         </div>
         
@@ -102,7 +111,7 @@
         상품가격 <span class="price_sum"> 0원</span> <i class="fas fa-plus fa-xl"></i> 배송비 <span class="delivery"> 0원</span> <i class="fas fa-equals fa-xl"></i> 주문금액 <span class="price_sum2"> 0원</span>
     </div>
     <div class="cartbtn">
-        <a href="./search.html"><button class="cartbtn1">계속 쇼핑하기</button></a>
+        <a href="./search.html" target="_parent"><button class="cartbtn1">계속 쇼핑하기</button></a>
         <a href="./pay.html" onclick="window.open(this.href, '_blank', 'width=500px,height=500px,toolbars=no,scrollbars=no'); return false;"><button class="cartbtn2">구매하기</button></a>
     </div>
 <script src="js/mypage.js"></script>

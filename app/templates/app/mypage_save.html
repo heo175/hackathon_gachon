@@ -48,17 +48,18 @@
     <script type="text/javascript">
         function deleteBtn(){
             if (confirm("삭제하시겠습니까?")) {
-                // 삭제 코드
+                //삭제하기
             } else {
-
+                //취소
             }
         }       
 
         function cartBtn(){
             if (confirm("장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?")) {
-                // 삭제 코드
+                //장바구니에 담겨짐
+                window.parent.document.location.href = "mypage.html";
             } else {
-
+                //취소
             }
         }    
     </script>
@@ -113,8 +114,8 @@
                     <div>0000000원</div>
                 </div>
                 <div class="col-1 p-1" style=" text-align:right;">
-                   <!-- <button class="cart_delete_btn">삭제</button> -->
-                   <button class="likebt" style="border: none; background-color:white;"><i class="fas fa-heart" id="heart"></i></button>
+                   <button class="cart_delete_btn">삭제</button>
+                   <!-- <button class="likebt" style="border: none; background-color:white;"><i class="fas fa-heart" id="heart"></i></button> -->
                 </div>
             </div>
         </div>       
@@ -122,7 +123,7 @@
         <div class="set_save_list" id="show2" style="display:none;">
             <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
                 <div class="col-2 p-1 pl-3" style="text-align:left;">
-                    <input type="checkbox" id="check_all" onclick="checkAll();">&nbsp;&nbsp;&nbsp;&nbsp;전체선택
+                    <input type="checkbox" id="check_all2" onclick="checkAll2();">&nbsp;&nbsp;&nbsp;&nbsp;전체선택
                 </div>
                 <div class="col-7 p-1">
                     <div><p class="pt-3">선물세트 이름</p></div>
@@ -137,7 +138,7 @@
             <!-- {%for i in DB이름.all %} -->
             <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
                 <div class="col-2 p-1 pl-3" style="text-align:left;">
-                    <input type="checkbox" class="check" name="allcheck" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="check" name="allcheck2" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
                     <img src="assets/img/grape.jpg" width="80px" height="80px"><!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
                 </div>
                 <div class="col-7 p-1">
@@ -152,6 +153,22 @@
                 </div>
             </div>
             <!-- {%endfor%} -->
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" class="check" name="allcheck2" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="assets/img/grape.jpg" width="80px" height="80px"><!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">{{i.상품이름}}</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>{{i.금액}}원</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                    <a href="#"><button class="cart_delete_btn" onclick="cartBtn();">담기</button></a> <!--장바구니에 담는 함수-->
+                    <button class="cart_delete_btn" onclick="deleteBtn();">삭제</button>
+                </div>
+            </div>
         </div>       
     </div>
 <script src="js/mypage.js"></script>
