@@ -43,7 +43,7 @@
         <!-- {%for i in DB이름.all %} -->
         <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
             <div class="col-2 p-1 pl-3" style="text-align:left;">
-                <input type="checkbox" class="check" name="allcheck" onclick="check(this)" value="4000">&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" class="check" name="allcheck" onclick="check(this)" value="4000">&nbsp;&nbsp;&nbsp;&nbsp; <!-- value="{{i.price}}"로 바꾸면 됩니다.-->
                 <img src="assets/img/apple.png" width="80px" height="80px"> <!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
             </div>
             <div class="col-3 p-1">
