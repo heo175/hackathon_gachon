@@ -101,8 +101,8 @@ def logoutUser(request):
 
 # My Page(로그인시 이모티콘 누르면 회원 개인페이지로 이동)
 def mypage(request):
-	context = {}
-	return render(request, 'app/mypage.html',context)
+	context = {1, 2, 3}
+	return render(request, 'app/mypage.html',{"hi":context})
 
 # mypage_cart
 def cart(request):

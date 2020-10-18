@@ -208,6 +208,11 @@ tr{
   margin: 10px 0;
 }
 
+/* mypage_modify */
+.form-group{
+  width: max-content;
+}
+
 /* 하트 버튼 */
 .fa-heart{ font-size: x-large;}
 .likebt{  outline:0!important; margin-top: 5%; margin-right: 18px;}
