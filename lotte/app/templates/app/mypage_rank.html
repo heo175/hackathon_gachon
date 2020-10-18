@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <!-- 차트 링크 --> <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>개인랭크</title>
+</head>
+<body>
+<!-- 부트스트랩 --> 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script>
+    function doShow() { 
+        if ($('#rankgraph').is(":visible")) { 
+            $('#rankgraph').hide(); 
+        } else { 
+            $('#rankgraph').show();
+        } 
+    } 
+
+    
+</script>
+    <br>
+<div>
+    <div class="sector1">
+        <h5 style="margin-left: 18%;">RANK</h5>
+        <!-- <h5 style="margin-left: 8%;">ID</h5> -->
+        <h5 style="margin-left: 5%;">등급</h5>
+        <h5 style="margin-left: 6%;">좋아요 / 판매 수</h5>
+        <h5 style="margin-left: 3%;">세트보러가기</h5>
+        <h5 style="margin-left: 4%;">실적보기</h5>
+    </div>
+    <div class="list-group rank">
+        <!-- 1등 -->
+        <div class="bling">
+            <div class="basic1">
+                1
+            </div>
+            <!-- <div class="basic2">
+                tksgk2598
+            </div> -->
+            <div class="basic3">
+                <i style="color: gold;" class="fas fa-crown"></i>
+            </div>
+            <div class="basic4">
+                10000/1250
+            </div>
+            <div class="basic5">
+                <a href="{% url 'make' %}" class="ho" target="_parent">상품보기</a>
+            </div>
+            <div class="basic6">
+                <a class="graphBtn" onclick="doShow();"><i class="fas fa-chart-line fa-2x"></i></a>
+            </div>
+        </div>
+    </div>
+<br>
+<!-- 차트 공간 -->
+<canvas id="rankgraph" width="400" height="200" style="width:400px;height:300px;text-align:center;display:none;"></canvas>
+<!-- 차트 --> 
+<script> 
+    var rankgraph = document.getElementById('rankgraph').getContext('2d');
+    var chart = new Chart(rankgraph, { 
+        // 챠트 종류를 선택 
+        type: 'line', 
+        // 챠트를 그릴 데이타 
+        data: { labels: ['1주차', '2주차', '3주차', '4주차'], 
+        datasets: [{ label: '지난 4주간의 누적 판매수', backgroundColor: 'transparent', borderColor: 'red', data: [200, 400, 800, 1000] }] }, 
+        // 옵션 
+        options: {
+            responsive: false,
+			scales: {
+				yAxes: [{
+					ticks: {
+						min: 0
+					}
+				}]
+			}
+        } }); 
+</script>
+</div>
+</body>
+</html>

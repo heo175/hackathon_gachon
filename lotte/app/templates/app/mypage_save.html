@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <title>찜목록</title>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        // [상품] 누르면 상품만, [선물세트] 누르면 선물세트만 보이게
+        $(document).ready(function(){
+            $("#2").click(function(){
+                $("#show2").css("display", "block");
+                $("#show1").css("display", "none");
+                $("#2").attr("class", "savebtn2");
+                $("#1").attr("class", "savebtn1");
+            });
+
+            $("#1").click(function(){
+                 $("#show1").css("display", "block");
+                $("#show2").css("display", "none");
+                $("#1").attr("class", "savebtn2");
+                $("#2").attr("class", "savebtn1");
+            });
+            
+        });
+
+        // 하트 색 바뀌게
+        $(function () {
+            $("i").click(function () {
+                $(this).toggleClass("far");
+                deleteBtn();
+                $(this).toggleClass("fas");
+            })
+        });
+
+
+        
+
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        function deleteBtn(){
+            if (confirm("삭제하시겠습니까?")) {
+                //삭제하기
+            } else {
+                //취소
+            }
+        }       
+
+        function cartBtn(){
+            if (confirm("장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?")) {
+                //장바구니에 담겨짐
+                window.parent.document.location.href = "{% url 'mypage' %}";
+            } else {
+                //취소
+            }
+        }    
+
+        // 체크박스 전체선택, 전체해제
+        function checkAll(){
+            if( $("#check_all").is(':checked') ){
+            $("input[name=allcheck]").prop("checked", true);
+            }else{
+            $("input[name=allcheck]").prop("checked", false);
+            }
+        }
+
+        function checkAll2(){
+            if( $("#check_all2").is(':checked') ){
+            $("input[name=allcheck2]").prop("checked", true);
+            }else{
+            $("input[name=allcheck2]").prop("checked", false);
+            }
+        }
+    </script>
+    <div class="savebtn">
+        <button class="savebtn2" id="1">상품</button>
+        <button class="savebtn1" id="2">선물세트</button>
+    </div>
+    <div>
+        <div class="product_save_list" id="show1">
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" id="check_all" onclick="checkAll();">&nbsp;&nbsp;&nbsp;&nbsp;전체선택
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">상품 이름</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>금액</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                    <button class="all_cart_delete_btn" onclick="deleteBtn();">삭제</button>
+                </div>
+            </div>
+            
+            <!-- {%for i in DB이름.all %} -->
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" class="check" name="allcheck" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="{% static 'img/grape.jpg' %}" width="80px" height="80px"><!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">{{i.상품이름}}</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>{{i.금액}}원</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                    <button class="cart_delete_btn" onclick="deleteBtn();">삭제</button>
+                    <!-- <button class="likebt" style="border: none; background-color:white;"><i class="fas fa-heart" id="heart"></i></button> -->
+                </div>
+            </div>
+            <!-- {%endfor%} -->
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" class="check" name="allcheck" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="{% static 'img/grape.jpg' %}" width="80px" height="80px">
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">상품이름 상품이름 상품이름 상품이름상품이름</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>0000000원</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                   <button class="cart_delete_btn" onclick="deleteBtn();">삭제</button>
+                   <!-- <button class="likebt" style="border: none; background-color:white;"><i class="fas fa-heart" id="heart"></i></button> -->
+                </div>
+            </div>
+        </div>       
+
+        <div class="set_save_list" id="show2" style="display:none;">
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" id="check_all2" onclick="checkAll2();">&nbsp;&nbsp;&nbsp;&nbsp;전체선택
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">선물세트 이름</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>금액</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                    <button class="all_cart_delete_btn" onclick="deleteBtn();">삭제</button>
+                </div>
+            </div>
+            <!-- {%for i in DB이름.all %} -->
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" class="check" name="allcheck2" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="{% static 'img/grape.jpg' %}" width="80px" height="80px"><!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">{{i.상품이름}}</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>{{i.금액}}원</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                    <a href="#"><button class="cart_delete_btn" onclick="cartBtn();">담기</button></a> <!--장바구니에 담는 함수-->
+                    <button class="cart_delete_btn" onclick="deleteBtn();">삭제</button>
+                </div>
+            </div>
+            <!-- {%endfor%} -->
+            <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+                <div class="col-2 p-1 pl-3" style="text-align:left;">
+                    <input type="checkbox" class="check" name="allcheck2" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="{% static 'img/grape.jpg' %}" width="80px" height="80px"><!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
+                </div>
+                <div class="col-7 p-1">
+                    <div><p class="pt-3">{{i.상품이름}}</p></div>
+                </div>
+                <div class="col-2 p-1" style=" text-align:center;">
+                    <div>{{i.금액}}원</div>
+                </div>
+                <div class="col-1 p-1" style=" text-align:right;">
+                    <a href="#"><button class="cart_delete_btn" onclick="cartBtn();">담기</button></a> <!--장바구니에 담는 함수-->
+                    <button class="cart_delete_btn" onclick="deleteBtn();">삭제</button>
+                </div>
+            </div>
+        </div>       
+    </div>
+</body>
+</html>

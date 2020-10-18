@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <!-- 차트 링크 --> <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+
+<body>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- navbar -->
+    <nav>
+        <div>
+            <a href="{% url 'home' %}">
+
+                <img id="top" style="margin-top: 3%;width: 6%;" src="https://blog.lotte.co.kr/wp-content/themes/lotte_v2/assets/images/ci.png">
+            </a>
+
+        </div>
+
+
+        <div>
+            <div class="menu">
+                <a href="{% url 'home' %}"><span>홈</span></a>
+                <a href="{% url 'search' %}"><span>상품보기</span></a>
+                <a href="{% url 'make' %}"><span>상품만들기</span></a>
+                <a href="{% url 'rank' %}"><span>랭킹</span></a>
+
+                <a href="{% url 'mypage' %}"  class="on"><span class="fas fa-user-circle col-peo"></span></a>
+                <span></span>
+            </div>
+        </div>
+
+    </nav>
+
+    <script>
+        $(document).ready(function () {
+            $('nav a').on('click', function () {
+                $(this).addClass('on');
+                $(this).siblings().removeClass('on');
+
+            });
+
+        });
+    </script>
+    <!-- navbar -->
+
+    <div class="container" style="visibility: hidden;">
+        안보이는부분/공간차지용<br>안보이는부분/공간차지용<br>안보이는부분/공간차지용<br>
+    </div>
+    <!-- <div class="container" style="visibility: hidden;">
+        안보이는부분/공간차지용<br>안보이는부분/공간차지용<br>안보이는부분/공간차지용<br>
+    </div> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-1 mainUser" style="height: 200px;"> 
+                <div class="mainUserImg">
+                    <i class="fas fa-user fa-2x p-3 mb-3"></i> 
+                    <p style="text-align: center;">윤신님</p> <!--{{id}}-->
+                </div>
+                <div class="mainUserInfo">
+                    <p style="text-align: center;">50000등<br><!--{{rank}}-->
+                    5000P</p><!--{{point}}-->
+                </div>
+            </div>
+            <div class="container-fluid col-11">
+                <div class="col-md-12 product-info">
+                    <ul id="myTab" class="nav nav-tabs nav_tabs d-flex justify-content-end">
+
+                        <li class="active"><a href="#rank" data-toggle="tab">내랭킹</a></li>
+                        <li><a href="#cart" data-toggle="tab">장바구니</a></li>
+                        <li><a href="#history" data-toggle="tab">구매내역</a></li>
+                        <li><a href="#save" data-toggle="tab">찜</a></li>
+                        <li><a href="#modify" data-toggle="tab">수정</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="container" style="visibility: hidden;">
+                            안보이는부분/공간차지용<br>
+                        </div>
+                        <div class="tab-pane fade in active" id="rank">
+                            <!-- <iframe src="mypage/myrank" class="frameset"></iframe> -->
+                            <script>
+                                function doShow() { 
+                                    if ($('#rankgraph').is(":visible")) { 
+                                        $('#rankgraph').hide(); 
+                                    } else { 
+                                        $('#rankgraph').show();
+                                    } 
+                                } 
+                            
+                                
+                            </script>
+                                <br>
+                            <div>
+                                <div class="sector1">
+                                    <h5 style="margin-left: 18%;">RANK</h5>
+                                    <!-- <h5 style="margin-left: 8%;">ID</h5> -->
+                                    <h5 style="margin-left: 8%;">등급</h5>
+                                    <h5 style="margin-left: 10%;">좋아요 / 판매 수</h5>
+                                    <h5 style="margin-left: 7%;">세트보러가기</h5>
+                                    <h5 style="margin-left: 8%;">실적보기</h5>
+                                </div>
+                                <div class="list-group rank">
+                                    <!-- 1등 -->
+                                    <div class="bling">
+                                        <div class="basic1">
+                                            1
+                                        </div>
+                                        <!-- <div class="basic2">
+                                            tksgk2598
+                                        </div> -->
+                                        <div class="basic3">
+                                            <i style="color: gold;" class="fas fa-crown"></i>
+                                        </div>
+                                        <div class="basic4">
+                                            10000/1250
+                                        </div>
+                                        <div class="basic5">
+                                            <a href="{% url 'make' %}" class="ho" target="_parent">상품보기</a>
+                                        </div>
+                                        <div class="basic6">
+                                            <a class="graphBtn" onclick="doShow();"><i class="fas fa-chart-line fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <br>
+                            <!-- 차트 공간 -->
+                            <canvas id="rankgraph" width="400" height="200" style="width:400px;height:300px;text-align:center;display:none;"></canvas>
+                            <!-- 차트 --> 
+                            <script> 
+                                var rankgraph = document.getElementById('rankgraph').getContext('2d');
+                                var chart = new Chart(rankgraph, { 
+                                    // 챠트 종류를 선택 
+                                    type: 'line', 
+                                    // 챠트를 그릴 데이타 
+                                    data: { labels: ['1주차', '2주차', '3주차', '4주차'], 
+                                    datasets: [{ label: '지난 4주간의 누적 판매수', backgroundColor: 'transparent', borderColor: 'red', data: [200, 400, 800, 1000] }] }, 
+                                    // 옵션 
+                                    options: {
+                                        responsive: false,
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    min: 0
+                                                }
+                                            }]
+                                        }
+                                    } }); 
+                            </script>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="cart">
+                            <iframe src="{% url 'cart' %}" class="frameset"></iframe>
+                        </div>
+                        <div class="tab-pane fade" id="history">
+                            <iframe src="{% url 'history' %}" class="frameset"></iframe>
+                        </div>
+                        <div class="tab-pane fade" id="save">
+                            <iframe src="{% url 'save' %}" class="frameset"></iframe>
+                        </div>
+                        <div class="tab-pane fade" id="modify">
+                            <iframe src="{% url 'modify' %}" class="frameset"></iframe>
+                        </div>
+                    </div>
+                    <hr>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

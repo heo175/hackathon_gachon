@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <title>장바구니</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function deleteBtn(){
+            if (confirm("삭제하시겠습니까?")) {
+                //삭제하기
+            } else {
+                //취소
+            }
+        }       
+
+        // 체크박스 체크시 금액 나오게
+        var price=0;
+        var checks=0;
+        function check(box){
+            
+            if(box.checked == true){     
+                $(".delivery").text("2500원");
+                checks++;
+                price = price + Number($(box).val());
+                $( '.price_sum' ).text(price+"원");
+                $( '.price_sum2' ).text(price+2500+"원");
+            }
+
+            if(box.checked == false){
+                checks--;
+                price = price - Number($(box).val());
+                $( '.price_sum' ).text(price+"원");
+                $( '.price_sum2' ).text(price+2500+"원");
+                if(checks==0){
+                    $(".delivery").text("0원");
+                    $( '.price_sum2' ).text("0원");
+                }
+            }
+        }
+
+        // 체크박스 전체선택, 전체해제
+        function checkAll(){
+            if( $("#check_all").is(':checked') ){
+            $("input[name=allcheck]").prop("checked", true);
+            $("input[name=allcheck]:checked").each(function() {
+                price = price + Number($(this).val());
+                $(".delivery").text("2500원");
+                $( '.price_sum' ).text(price+"원");
+                $( '.price_sum2' ).text(price+2500+"원");
+            });
+            price=0;
+            }else{
+            $("input[name=allcheck]").prop("checked", false);
+            $(".delivery").text("0원");
+            $( '.price_sum' ).text("0원");
+            $( '.price_sum2' ).text("0원");
+            price=0;
+            }
+        }
+
+        // +, - 누르면 수량 변화
+
+
+        $(function() {
+            $(".plus").click(function () {
+                var count = Number($(".cart_count").val());
+                var price = Number($(".cart_hidden_price").val());
+                $(".cart_count").val(count+1);
+                $(".sum").text(price*(count+1)+"원"); //"div[name=2]"
+            })
+
+            $(".minus").click(function () {
+                var count = Number($(".cart_count").val());
+                var price = Number($(".cart_hidden_price").val());
+                if(count>1){
+                $(".cart_count").val(count-1);
+                $(".sum").text(price*(count-1)+"원");
+                }
+            })
+        });
+    </script>
+    <br>
+    <div class="cart_list">
+        <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+            <div class="col-2 p-1 pl-3" style="text-align:left;">
+                <input type="checkbox" id="check_all" onclick="checkAll();">&nbsp;&nbsp;&nbsp;&nbsp;전체선택
+            </div>
+            <div class="col-3 p-1">
+                <div><p class="pt-3">선물세트 이름</p></div>
+            </div>
+            <div class="col-4 p-1">
+                <div></div>
+            </div>
+            <div class="col-2 p-1" style=" text-align:center;">
+                <div>금액</div>
+            </div>
+            <div class="col-1 p-1" style=" text-align:right;">
+                <button class="all_cart_delete_btn" onclick="deleteBtn();">삭제</button>
+            </div>
+        </div>
+        {%for i in hi %}
+        <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+            <div class="col-2 p-1 pl-3" style="text-align:left;">
+                <input type="checkbox" class="check" name="allcheck" onclick="check(this)" value="4000">&nbsp;&nbsp;&nbsp;&nbsp; <!-- value="{{i.price}}"로 바꾸면 됩니다.-->
+                <img src="{% static 'img/apple.png' %}" width="80px" height="80px"> <!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
+            </div>
+            <div class="col-3 p-1">
+                <div><p class="pt-3">{{i}}</p></div>
+            </div>
+            <div class="col-4 p-1" style=" text-align:right;">
+                <input type="text" class="cart_hidden_price" name="price" value="900">  <!-- value={{i.price}} -->
+                <input type="text" class="cart_count" value="1" size="1"> <!-- {{i.count}} -->
+                <button class="{{i}}" id={{i}}><i class="fas fa-plus fa-xl"></i></button>
+                <button class="minus"><i class="fas fa-minus fa-xl"></i></button>
+            </div>
+            <div class="col-2 p-1" style=" text-align:center;">
+                <div class="sum">4000원</div> <!-- {{i.price}} -->
+            </div>
+            <div class="col-1 p-1" style=" text-align:right;">
+                <a href="#"><button class="cart_delete_btn" onclick="deleteBtn();">삭제</button></a> <!-- delete/i.id -->
+            </div>
+        </div>
+        {%endfor%}
+        
+        <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+            <div class="col-2 p-1 pl-3" style="text-align:left;">
+                <input type="checkbox" class="check" name="allcheck" onclick="check(this)" value="4000">&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="{% static 'img/apple.png' %}" width="80px" height="80px"> <!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
+            </div>
+            <div class="col-3 p-1">
+                <div><p class="pt-3">22{{i.set_name}}</p></div>
+            </div>
+            <div class="col-4 p-1" style=" text-align:right;">
+                <input type="text" class="cart_hidden_price" name="2" value="300">  <!-- value={{i.price}} -->
+                <input type="text" class="cart_count" value="1" size="1"> <!-- {{i.count}} -->
+                <button class="plus" name="2"><i class="fas fa-plus fa-xl"></i></button>
+                <button class="minus" name="2"><i class="fas fa-minus fa-xl"></i></button>
+            </div>
+            <div class="col-2 p-1" style=" text-align:center;">
+                <div class="sum" name="2">4000원</div> <!-- {{i.price}} -->
+            </div>
+            <div class="col-1 p-1" style=" text-align:right;">
+                <a href="#"><button class="cart_delete_btn" onclick="deleteBtn();">삭제</button></a> <!-- delete/i.id -->
+            </div>
+        </div>
+        <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
+            <div class="col-2 p-1 pl-3" style="text-align:left;">
+                <input type="checkbox" class="check" name="allcheck" onclick="check(this)" value="4000">&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="{% static 'img/apple.png' %}" width="80px" height="80px"> <!-- src="{{i.set_img.url}}""로 바꾸면 됩니다.-->
+            </div>
+            <div class="col-3 p-1">
+                <div><p class="pt-3">33{{i.set_name}}</p></div>
+            </div>
+            <div class="col-4 p-1" style=" text-align:right;">
+                <input type="text" class="cart_hidden_price" name="price" value="5500">  <!-- value={{i.price}} -->
+                <input type="text" class="cart_count" value="1" size="1"> <!-- {{i.count}} -->
+                <button class="plus"><i class="fas fa-plus fa-xl"></i></button>
+                <button class="minus"><i class="fas fa-minus fa-xl"></i></button>
+            </div>
+            <div class="col-2 p-1" style=" text-align:center;">
+                <div class="sum">4000원</div> <!-- {{i.price}} -->
+            </div>
+            <div class="col-1 p-1" style=" text-align:right;">
+                <a href="#"><button class="cart_delete_btn" onclick="deleteBtn();">삭제</button></a> <!-- delete/i.id -->
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="cartSum">
+        상품가격 <span class="price_sum"> 0원</span> <i class="fas fa-plus fa-xl"></i> 배송비 <span class="delivery"> 0원</span> <i class="fas fa-equals fa-xl"></i> 주문금액 <span class="price_sum2"> 0원</span>
+    </div>
+    <div class="cartbtn">
+        <a href="{% url 'search' %}" target="_parent"><button class="cartbtn1">계속 쇼핑하기</button></a>
+        <a href="{% url 'pay' %}" onclick="window.open(this.href, '_blank', 'width=500px,height=500px,toolbars=no,scrollbars=no'); return false;"><button class="cartbtn2">구매하기</button></a>
+    </div>
+</body>
+</html>
