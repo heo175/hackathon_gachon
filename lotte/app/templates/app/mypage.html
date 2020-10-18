@@ -251,7 +251,7 @@
                                 <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
                                     <div class="col-2 p-1 pl-3" style="text-align:left;">
                                         <input type="checkbox" class="check" name="allcheck" onclick="check(this)" value="{{선물세트금액}}">&nbsp;&nbsp;&nbsp;&nbsp; <!-- value="{{i.price}}"로 바꾸면 됩니다.-->
-                                        <img src="{% static 'img/apple.png' %}" width="80px" height="80px"> 
+                                        <img src="{% static 'img/{{선물세트이름}}.jpg' %}" width="80px" height="80px"> 
                                     </div>
                                     <div class="col-2 p-1">
                                         <div><p class="pt-3">{{선물세트이름}}</p></div>
@@ -292,7 +292,7 @@
                                     </div>
                                     <div class="row" style="border: solid 1px gainsboro; margin: 0 50px;">
                                         <div class="col-3 p-3" style="border-right: solid 1px gainsboro; text-align:center;">
-                                            <img class="m-3" src="{% static 'img/grape.jpg' %}" width="150px" height="150px">
+                                            <img class="m-3" src="{% static 'img/{{선물세트이름}}.jpg' %}" width="150px" height="150px">
                                         </div>
                                         <div class="col-6 p-3" style="border-right: solid 1px gainsboro;">
                                             <p class="historyNameTxt pt-3 mt-5 mb-0">{{선물세트이름}}</p> 
@@ -350,6 +350,7 @@
                                 }    
                         
                                 // 체크박스 전체선택, 전체해제
+                                // 상품에서의 체크박스 전체선택, 전체해제
                                 function checkAll3(){
                                     if( $("#check_all3").is(':checked') ){
                                     $("input[name=allcheck3]").prop("checked", true);
@@ -357,7 +358,7 @@
                                     $("input[name=allcheck3]").prop("checked", false);
                                     }
                                 }
-                        
+                                // 선물세트에서의 체크박스 전체선택, 전체해제
                                 function checkAll2(){
                                     if( $("#check_all2").is(':checked') ){
                                     $("input[name=allcheck2]").prop("checked", true);
@@ -391,7 +392,7 @@
                                     <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
                                         <div class="col-2 p-1 pl-3" style="text-align:left;">
                                             <input type="checkbox" class="check" name="allcheck3" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <img src="{% static 'img/grape.jpg' %}" width="80px" height="80px">
+                                            <img src="{% static 'img/{{상품이름}}.jpg' %}" width="80px" height="80px">
                                         </div>
                                         <div class="col-7 p-1">
                                             <div><p class="pt-3">{{i.상품이름}}</p></div>
@@ -425,7 +426,7 @@
                                     <div class="row" style="border: solid 1px gainsboro; margin: 0 50px; display: flex; align-items: center;">
                                         <div class="col-2 p-1 pl-3" style="text-align:left;">
                                             <input type="checkbox" class="check" name="allcheck2" onclick="check(this)">&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <img src="{% static 'img/grape.jpg' %}" width="80px" height="80px">
+                                            <img src="{% static 'img/{{상품이름}}.jpg' %}" width="80px" height="80px">
                                         </div>
                                         <div class="col-7 p-1">
                                             <div><p class="pt-3">{{i.상품이름}}</p></div>
